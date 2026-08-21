@@ -5,7 +5,7 @@
 
 Summary:	Allows to save data from KDE PIM applications and restore them in other systems
 Name:		pim-data-exporter
-Version:	26.04.3
+Version:	26.08.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -36,7 +36,7 @@ BuildRequires:	cmake(KPim6IdentityManagementCore)
 BuildRequires:	cmake(KPim6Libkdepim)
 BuildRequires:	cmake(KPim6MailCommon)
 BuildRequires:	cmake(KPim6MailTransport)
-BuildRequires:	cmake(KPim6Mime)
+BuildRequires:	cmake(KF6Mime)
 BuildRequires:	cmake(KPim6PimCommonAkonadi)
 BuildRequires:	cmake(KPim6TextEdit)
 BuildRequires:	cmake(KF6CalendarCore)
@@ -59,6 +59,7 @@ Obsoletes: %{libpimsettingexporterprivate} < %{EVRD}
 %rename plasma6-pim-data-exporter
 
 BuildSystem:	cmake
+BuildOption:	-DBUILD_PYTHON_BINDINGS:BOOL=OFF
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
